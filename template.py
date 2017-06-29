@@ -2,13 +2,14 @@
 # _*_ coding: utf-8 -*-
 
 #important variables -- define these beforehand or throughout your adventures!
-
-name = ''
-
+name = input('What\'s your name?')
 
 
 
-def main_screen(text):
+
+
+
+def main_screen(*args):
     if len(name)%2 == 0:
         extra = '' 
         half_bar = '='*int((80 - len(name))/2)
@@ -19,34 +20,28 @@ def main_screen(text):
     print(f'''
 {half_bar}{name}{half_bar}{extra}
 
-  {text}
+  {args[0]}
        
 
 
 
 
 
-
-
 ==============================What do you do?===================================
-| a.) placeholder_option_A
-| b.) placeholder_option_B
-| c.) placeholder_option_C
+ a.) placeholder_option_A 
+ b.) placeholder_option_B
+ c.) placeholder_option_C
 {'='*80}
 
 ''', end = ''
 )
 
 
-#important variables:
-
-
 #story here
 
-name = input('What\'s your name?')
-
-main_screen('''
+text = '''
         Here is the text you wanted!
         This string is where the main body of the story will go.
         Anyway, whatever.
-        ''')
+        '''
+main_screen(text, 'potato')
