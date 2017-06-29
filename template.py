@@ -30,22 +30,16 @@ def main_screen(screen_number, *args):
 
 
 ==============================What do you do?===================================
- a.) {args[1]}
- b.) {args[2]}
- c.) {args[3]}
- d.) {args[4]}
+ 1.) {args[1]}
+ 2.) {args[2]}
+ 3 {args[3]}
+ 4.) {args[4]}
 {'='*80}
 
 ''', end = ''
 )
 
-
-
-screen_number = 1
-
-#main_screen(screen_number, '''
-#Welcome to the game!''',
-#'Anything', '', '', '', '')
+screen_number = 0
 
 def screen_1():                           #to be copied/pasted and then altered.
 
