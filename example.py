@@ -50,7 +50,8 @@ screen_number = 1
 
 main_screen(screen_number, '''
 Welcome to the game!''',
-'Anything', '', '', '', '')
+'Anything')
+
 def screen_1():                           #to be copied/pasted and then altered.
 
 
@@ -59,15 +60,7 @@ def screen_1():                           #to be copied/pasted and then altered.
     while True:                              
         c.execute(f"ALTER TABLE {name} ADD COLUMN 'FIRST_DECISION' TEXT DEFAULT  'undecided'")
     
-        text = ''' 
-        Here is the text you wanted!  
-        This string is where the main 
-        body of the story will go.  
-        ''',
-        option_one= 'First option',
-        option_two= 'Second option', 
-        option_three= 'Third option',
-        option_four = 'Fourth option'
+        text = ''' Here is the text you wanted!  This string is where the main body of the story will go.  Anyway, whatever.  ''' 
 
 
         screen_number += 1
@@ -82,8 +75,7 @@ def screen_1():                           #to be copied/pasted and then altered.
 
 
         else:
-            main_screen(screen_number, text, player_input, 
-                    option_one, option_two, option_three)
+            main_screen(screen_number, text, player_input)
 print(c.execute("PRAGMA table_info('table_name')"))
 screen_1()
 print('you finished the first loop!')
