@@ -1,16 +1,13 @@
 #! usr/bin/python3.6
 # _*_ coding: utf-8 -*-
 
-import sqlite3, os
+import  os
 
 name = input('What\'s your name?')
 
 
 
-conn = sqlite3.connect(f'players.db')
-c = conn.cursor()
     
-c.execute(f'CREATE TABLE if not exists {name} (screen INTEGER PRIMARY KEY)')
     
 
 def main_screen(screen_number, *args):
@@ -27,18 +24,16 @@ def main_screen(screen_number, *args):
 {half_bar}{screen_number}{half_bar}{extra}
 
   {args[0]}
-  You said: {args[1]}
-  {screen_number}
        
 
 
 
 
 ==============================What do you do?===================================
- a.) {args[2]}
- b.) {args[3]}
- c.) {args[4]}
- d.) {args[5]}
+ a.) {args[1]}
+ b.) {args[2]}
+ c.) {args[3]}
+ d.) {args[4]}
 {'='*80}
 
 ''', end = ''
@@ -48,42 +43,50 @@ def main_screen(screen_number, *args):
 
 screen_number = 1
 
-main_screen(screen_number, '''
-Welcome to the game!''',
-'Anything', '', '', '', '')
-def screen_1():                           #to be copied/pasted and then altered.
+#main_screen(screen_number, '''
+#Welcome to the game!''',
+#'Anything', '', '', '', '')
 
+def screen_1():                           #to be copied/pasted and then altered.
 
     global screen_number
 
-    while True:                              
-        c.execute(f"ALTER TABLE {name} ADD COLUMN 'FIRST_DECISION' TEXT DEFAULT  'undecided'")
+
     
-        text = ''' 
-        Here is the text you wanted!  
-        This string is where the main 
-        body of the story will go.  
-        ''',
-        option_one= 'First option',
-        option_two= 'Second option', 
-        option_three= 'Third option',
-        option_four = 'Fourth option'
+    text = ''' 
+    Here is the text you wanted!  
+    This string is where the main 
+    body of the story will go.  
+    ''',
+    option_one= 'First option',
+    option_two= 'Second option', 
+    option_three= 'Third option',
+    option_four = 'Fourth option'
 
+    screen_number += 1
 
-        screen_number += 1
-        player_input = input('You choose option: ')
+    while True:                              
 
+        player_input = ''
 
+        
+        main_screen(screen_number, text, option_one, option_two, 
+                option_three, option_four)
+        player_input = input('Your choice! ')
         if player_input == 'quit':
-            conn.close()
             exit()
-        elif player_input == 'a':
-         break
-
-
+        elif player_input == '1':
+            break
+        elif player_input == '2':
+            break
+        elif player_input == '3':
+            break
+        elif player_input == '4':
+            break
         else:
-            main_screen(screen_number, text, player_input, 
-                    option_one, option_two, option_three)
-print(c.execute("PRAGMA table_info('table_name')"))
+            print('Not a choice.')
+            continue
+
+            
 screen_1()
 print('you finished the first loop!')
