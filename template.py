@@ -1,6 +1,7 @@
 #! usr/bin/python3.6
 # _*_ coding: utf-8 -*-
 
+
 #important variables -- define these beforehand or throughout your adventures!
 name = input('What\'s your name?')
 
@@ -9,18 +10,20 @@ name = input('What\'s your name?')
 
 
 
-def main_screen(*args):
+def main_screen(screen_number, *args):
     if len(name)%2 == 0:
         extra = '' 
-        half_bar = '='*int((80 - len(name))/2)
+        half_bar = '='*int((80 - len(str(screen_number)))/2)
     else: 
         extra = '=' 
 
 
     print(f'''
-{half_bar}{name}{half_bar}{extra}
+{half_bar}{screen_number}{half_bar}{extra}
 
   {args[0]}
+  You said: {args[1]}
+  {screen_number}
        
 
 
@@ -44,4 +47,21 @@ text = '''
         This string is where the main body of the story will go.
         Anyway, whatever.
         '''
-main_screen(text, 'potato')
+
+screen_number = 1
+
+main_screen(screen_number, '''
+Welcome to the game!''',
+'Anything')
+
+while True:
+
+    screen_number += 1
+    player_input = input('You choose option: ')
+
+
+    if player_input == 'quit':
+        exit()
+    else:
+        main_screen(screen_number, text, player_input)
+
